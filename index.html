@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - TORCH Amine</title>
+    <link rel="icon" href="pirate.png" type="png">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 0.5rem 1rem;
+            background-color: #0f3460;
+        }
+
+        a {
+            color: #00ffaa; /* Rouge par exemple, changez cette couleur selon vos préférences */
+        }
+
+        /* Style pour les images de section */
+        .container {
+            position: relative; /* Nécessaire pour le positionnement absolu des enfants */
+        }
+
+        .section-img {
+            position: absolute;
+            left: -220px; /* Ajustez cette valeur selon la largeur de votre marge + l'espace pour l'image */
+            top: 0; /* Aligne l'image au début de la section */
+            width: 200px; /* Ajustez selon votre besoin, mais assurez-vous que cela correspond à la taille de vos images */
+            height: auto;
+            object-fit: cover; /* Pour que l'image couvre toute la zone tout en gardant son aspect */
+        }
+
+        #skills .section-img {
+            width: 1000px; /* Réduire la taille de l'image SWOT */
+            top: 250px; /* Descendre l'image un peu plus bas */
+            left: 0px; 
+        }
+
+        #academic .section-img {
+            width: 700px; /* Réduire la taille de l'image SWOT */
+            top: 365px; /* Descendre l'image un peu plus bas */
+            left: 100px; 
+        }
+
+        #experiences .section-img {
+            width: 700px; /* Réduire la taille de l'image SWOT */
+            top: 365px; /* Descendre l'image un peu plus bas */
+            left: 120px; 
+        }
+
+        #about .section-img {
+            width: 700px; /* Réduire la taille de l'image SWOT */
+            top: 365px; /* Descendre l'image un peu plus bas */
+            left: 120px; 
+        }
+
+        #lep .section-img {
+            width: 700px; /* Réduire la taille de l'image SWOT */
+            top: 365px; /* Descendre l'image un peu plus bas */
+            left: 120px; 
+        }
+
+        #objectives .section-img {
+            width: 700px; /* Réduire la taille de l'image SWOT */
+            top: 365px; /* Descendre l'image un peu plus bas */
+            left: 120px; 
+        }
+
+        #contact .section-img {
+            width: 700px; /* Réduire la taille de l'image SWOT */
+            top: 365px; /* Descendre l'image un peu plus bas */
+            left: 120px; 
+        }
+
+
+
+/* Optionnel : Pour changer la couleur au survol */
+        a:hover {
+            color: #00ffaa; /* Vert au survol, par exemple */
+            transform:scale(1.1);
+            text-decoration: underline;
+        }
+
+        .header-content .photo {
+            border-radius: 50%; /* Pour une photo circulaire */
+            width: 150px; /* Ajustez la taille selon vos besoins */
+            height: auto;
+            object-fit: cover;
+            margin-top: 0;
+        }
+
+        .header-content .header-logo {
+            border-radius: 0;  
+            width: 200px; /* Ajustez la taille selon vos besoins */
+            height: auto;
+            margin-top:0;
+        }
+
+        ul ul {
+        margin-left: 2em; /* Décale les sous-listes */
+        padding-left: 0;
+        list-style-type: disc; /* Utilise des puces simples pour les sous-listes */
+        color: #e0e0e0; /* Définit une couleur blanche pour les sous-listes */
+        }
+
+        ul ul li:before {
+            content: ''; /* Supprime tout style personnalisé de puce ajouté précédemment */
+        }
+        ul ul li {
+        margin-left: 0.5em; /* Réduit l'espace entre le point et le texte */
+        }
+
+        body {
+            font-family: 'Roboto Mono', monospace;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            color: #e0e0e0;
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            overflow-x: hidden;
+        }
+
+        header {
+            background: #0f3460;
+            color: #e0e0e0;
+            padding: 0;
+            text-align: center;
+            position: relative;
+        }
+
+        header h1 {
+            font-size: 2rem;
+            margin: 0.25rem;
+        }
+
+        header p {
+            font-size: 1rem;
+            margin: 0;
+        }
+        header h1, header p {
+            margin-top: 0; /* Aucun espace en haut pour ces éléments */
+        }
+
+       
+        #skills strong, #academic strong {
+            text-decoration: underline;
+            text-underline-offset: 5px; /* Ajustez cette valeur selon vos besoins */
+        }
+
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background: #16213e;
+            padding: 0.8rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav a {
+            margin: 0 1.5rem;
+            text-decoration: none;
+            color: #00d9ff;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+/* Ajout d'un effet de survol plus simple */
+        nav a:hover {
+            color: #00ffaa;
+            transform:scale(1.1);
+            text-decoration: underline;
+        }
+
+        section {
+            padding: 4rem 2rem;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            color: #00d9ff;
+            border-bottom: 2px solid #00d9ff;
+            display: inline-block;
+            margin-bottom: 1.5rem;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        ul li {
+            margin: 0.5rem 0;
+        }
+
+        ul li strong {
+            color: #00d9ff;
+            text-decoration: underline;
+        }
+
+        ul li:before {
+            content: "\2022";
+            color: #00d9ff;
+            font-weight: bold;
+            display: inline-block;
+            width: 1rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1.5rem;
+            background: #0f3460;
+            color: #e0e0e0;
+        }
+
+        footer a {
+            color: #00d9ff;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: #00ffaa;
+        }
+
+        /* Formulaire */
+        form {
+            background: #1a1a2e;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+        }
+
+        #about h2 img[src="hacker.gif"] {
+            text-decoration: none !important;
+            border-bottom: none !important;
+        }
+
+        #about h2 div {
+            text-decoration: none !important;
+        }
+
+        form label {
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        form input, form textarea {
+            width: 100%;
+            padding: 0.8rem;
+            margin-bottom: 1rem;
+            border: none;
+            border-radius: 4px;
+            background: #16213e;
+            color: #e0e0e0;
+        }
+
+        img[src]{
+            text-decoration: none !important;
+        }
+        #about h2 img[src] {
+            text-decoration: none !important;
+            border-bottom: none !important; /* Pour s'assurer qu'aucun soulignement n'est appliqué */
+        }
+
+        form button {
+            background: #00d9ff;
+            color: #1a1a2e;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        form button:hover {
+            background: #00ffaa;
+        }
+
+        /* Animations */
+        section {
+            animation: fadeIn 1s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                align-items: center;
+            }
+            .container {
+                padding: 1rem;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+        <img src="votre-photo.png" alt="Photo de Amine" class="photo">
+        <img src="esaip-logo.png" alt="Logo de l'ESAIP" class="header-logo">
+    </div>
+    <img src="robot.png" alt="Image au-dessus du titre" class="header-top-image" style="width: 170px; height: auto; position: absolute; top: 0; left: 50%; transform: translateX(-50%);">
+    <h1>Portfolio de TORCH Amine</h1>
+    <p>Cybersécurité, Réseaux et Programmation</p>
+    </header>
+
+    <nav>
+        <a href="#about">À propos de moi</a>
+        <a href="#skills">Compétences</a>
+        <a href="#experiences">Expériences</a>
+        <a href="#academic">Parcours académique</a>
+        <a href="#lep">Engagement associatif</a>
+        <a href="#objectives">Objectifs</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <section id="about">
+        <div class="container">
+            <h2><img src="hacker.gif" alt="Logo hacker" style="width: 70px; height: 70px; vertical-align: middle; margin-right: 5px; text-decoration: none;">À propos de moi</h2>
+            <p style="text-indent: 2em;">Salut ! Je m'appelle Amine, j'ai 19 ans et je suis actuellement en 3e année à l'ESAIP Aix-en-Provence, où je me spécialise en cybersécurité.</p> 
+            <p>Depuis que je suis tout petit, j'ai toujours été curieux de savoir comment fonctionnent les ordinateurs et comment les protéger des menaces. C'est cette passion pour la technologie et la sécurité qui m'a poussé à me lancer dans cette voie.</p>
+            <p>En dehors de mes études, je fais énormement de sport (football) mais je m'investis aussi dans des projets associatifs et des activités bénévoles, car je trouve important de développer des compétences humaines et de pouvoir aider les autres. J'aime beaucoup créer des sites comme celui-ci ;)</p> 
+            <p>Je suis quelqu'un de motivé, toujours prêt à relever de nouveaux défis et à apprendre de nouvelles choses pour m'améliorer. Mon but est de continuer à progresser dans ce domaine passionnant et de contribuer à rendre le monde numérique plus sécurisé !</p>
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="container">
+            
+            <h2><img src="skills.gif" alt="Logo skills" style="width: 70px; height: 70px; vertical-align: middle; margin-right: 5px;">Compétences</h2>
+            <p><h3>COMPÉTENCES TECHNIQUES</h3>
+            <ul>
+                <li><strong>Techniques:</strong> Cybersécurité, gestion des réseaux, systèmes, data et analyse de données, sciences mathématiques, entreprise & management de projet.</li>
+                <li><strong>Langues:</strong> Français (natif), Arabe (Maternelle), Anglais (C1), Espagnol (C1).</li>
+                <li><strong>Outils:</strong> Cisco, Linux, Virtualbox, C, Python, Java, CSS, HTML, Figma, phpMyAdmin, Xampp, Canva, VisualStudio Code, Matlab, GNU Octave.</li>
+                <li><strong>Soft-skills:</strong> Leadership, esprit d'équipe, gestion de projet, curiosité, adaptation, anticipation.</li>
+            </ul>
+            </p>
+            <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+            <img src="swot.png" alt="SWOT" class="section-img">
+
+            <p><h3>SPÉCIALISATIONS ESAIP</h3>
+            <ul>
+                <li><strong>Analyse mathématique & Algorithmique:</strong> Capacité à résoudre des problèmes complexes en utilisant des techniques mathématiques avancées et des algorithmes optimisés.</li>
+                <li><strong>Programmation:</strong> Développement en langage C pour la programmation système, compréhension des concepts de programmation orientée objet, et maîtrise de la programmation web (Front-end et Back-end).</li>
+                <li><strong>Réseaux et Sécurité :</strong> Connaissances approfondies en protocoles de réseau, routage, administration Linux, et sécurité des systèmes et des réseaux (infrastructure, sécurisation des installations).</li>
+                <li><strong>Modélisation et Gestion de Projet:</strong> Utilisation de UML pour la modélisation des systèmes, gestion de projet informatique, spécification et tests de logiciels.</li>
+                <li><strong>Base de données:</strong> Conception et gestion de bases de données relationnelles.</li>
+                <li><strong>Développement logiciel:</strong> Participation à des projets de développement, avec une approche orientée objet et une compréhension des cycles de vie du logiciel.</li>
+                <li><strong>Responsabilité Sociétale et Éthique:</strong> Intégration de principes de numérique responsable et d'éthique professionnelle dans les projets informatiques.</li>
+            </ul>
+            </p>
+        
+            <p><h3>COMPÉTENCES TRANSVERSALES</h3>
+            <ul>
+                <li>Capacité à travailler sur des projets multidisciplinaires.</li>
+                <li>Approche analytique et résolution de problèmes complexes.</li>
+                <li>Gestion du temps et priorités dans un contexte exigeant.</li>
+                <li>Adaptation rapide à de nouveaux outils et technologies.</li>
+            </ul>
+            </p>
+
+            <p><h3>COMPÉTENCES CLÉS DE MON CYCLE D'INGÉNIEUR</h3>
+            <ul>
+                <li>Maîtrise des standards de sécurité informatique (ISO 27001, RGPD).</li>
+                <li>Gestion et analyse des risques.</li>
+                <li>Programmation avancée et automatisation de tâches.</li>
+                <li>Conception et déploiement d'architectures réseau sécurisées.</li>
+            </ul>
+            </p>
+        </div>
+    </section>
+
+    <section id="experiences">
+        <div class="container">
+            <h2><img src="experience.png" alt="Logo experience" style="width: 90px; height: 90px; vertical-align: middle; margin-right: 5px;">Expériences professionnelles</h2>
+            <p><strong>STAGE EN CYBERSÉCURITÉ - PUBLICIS GROUP</strong></p>
+            <ul>
+                <li>Analyse des systèmes de sécurité et rédaction de rapports techniques.</li>
+                <li>Découverte du métier d'architecte réseau</li>
+                <li>Découverte du métier d'architecte système</li>
+                <li>Découverte du métier d'architecte sécurité</li>
+            
+            </ul>
+            <p><strong>MISSIONS D'INTÉRIM - AGENT DE MAINTENANCE</strong></p>
+            <ul>
+                <li>Entretien et réparation des installations électriques.</li>
+                <li>Installation de nouveaux équipements.</li>
+                <li>Assistance technique et maintenance préventive.</li>
+            </ul>
+            <p><strong>LECLERC DRIVE - PRÉPARATEUR DE COMMANDE</strong></p>
+            <ul>
+                <li>Préparation des commandes clients.</li>
+                <li>Contrôle qualité des produits.</li>
+                <li>Respect des normes d'hygiène et de sécurité.</li>
+            </ul>
+            
+
+            <p><strong>VOICI MON <a href="CV_TORCH_Amine.pdf" target="_blank">CV</a></strong></p>
+           
+        </div>
+    </section>
+
+    <section id="academic">
+        <div class="container">
+            <h2><img src="parcours.png" alt="Logo parcours" style="width: 70px; height: 70px; vertical-align: middle; margin-right: 5px;">Parcours académique</h2>
+            <p style="text-indent: 2em;">Actuellement en 3e année à l'ESAIP Aix-en-Provence, je me spécialise en cybersécurité. Avant cela, j'ai obtenu un baccalauréat général avec les spécialités Mathématiques et Physique-Chimie accompagnées de l'option maths expertes. Mon parcours m'a permis de développer des compétences solides en sciences et en informatique.</p>
+            <ul>
+                <li><strong>2023-2024:</strong> 2ème Année Ecole d'ingénieur en Cybersécurité - ESAIP (Aix-en-Provence)</li>
+                <li><strong>2022-2023:</strong> 1ère Année License Maths-Info - Aix-Marseille Université (Marseille)</li>            
+                <li><strong>2021-2022:</strong> Terminale - Lycée Dumont d'Urville (Toulon)
+                    <ul>
+                        <li>Baccalauréat général - Spécialités Mathématiques et Physique-Chimie, option maths expertes.</li>
+                        <li>Admis avec mention bien.</li>
+                    </ul>
+                </li>
+                <li><strong>2020-2021:</strong> Première - Lycée Privé Catholique Saint-Louis Saint-Clément (Viry-Châtillon)
+                    <ul>
+                        <li>Spécialités : Mathématiques, Physique-Chimie, Sciences Economiques et Sociales.</li>
+                    </ul>
+                </li>
+                <li><strong>2019-2020:</strong> Seconde - Lycée Privé Catholique Saint-Louis Saint-Clément (Viry-Châtillon)</li>
+                <li><strong>2015-2019:</strong> Collège - Jean Zay (Morsang-sur-Orge)</li>
+                    <ul>
+                        <li>Brevet des collèges - Mention très bien.</li>
+                    </ul>
+            </ul>
+            <h3>MES PROJETS SCOLAIRES</h3>
+            <ul>
+                <li><strong>Lycée-Simulation de réseau:</strong> Création d'un petit réseau local pour démontrer des concepts de base en réseau comme le routage et le masquage de sous-réseau.</li>
+                <li><strong>Lycée-Atelier de cryptographie:</strong> Étude des bases de la cryptographie avec un projet de chiffrement de messages simples.</li>
+                <li><strong>Aix-Marseille Université-Sécurisation d'application web:</strong> Projet de révision et sécurisation d'une application web vulnérable aux attaques courantes (XSS, SQL Injection).</li>
+                <li><strong>Aix-Marseille Université-Gestion des identités:</strong> Projet sur la gestion des identités et des accès, en mettant en place un système d'authentification LDAP.</li>
+                <li><strong>Aix-Marseille Université - Étude de cas sur la sécurité des données:</strong> Analyse des politiques de sécurité pour la protection des données personnelles selon le RGPD.</li>
+                <li><strong>ESAIP-Projet de sensibilisation à la sécurité:</strong> Participation à un projet de sensibilisation à la cybersécurité visant à éduquer les étudiants sur les bonnes pratiques de sécurité informatique.</li>
+                <li><strong>ESAIP-Création de site web:</strong> Utilisation de HTML en programmation front-end.</li>
+                <li><strong>ESAIP-Création et configuration d'un réseau local:</strong> Projet CISCO Packet Tracer.</li>
+                <li><strong>ESAIP-Portfolio:</strong> Création de ce magnifique portfolio.</li>
+                <li><strong>ESAIP-LEP:</strong> Bénévolat au sein d'une association de l'école. Voir section suivante :).</li>
+            </ul>
+        </div>
+    </section>
+    
+
+    <section id="lep">
+        <div class="container">
+            <h2><img src="jcaqse.png" alt="Logo jcaqse" style="width: 70px; height: 70px; vertical-align: middle; margin-right: 5px;">Engagement associatif</h2>
+            <p>J'ai accompli 35 heures de bénévolat au sein de l'association JCAQSE, où j'ai :</p>
+            <ul>
+                <li>Réalisé les montages vidéos de l'asso au sein du pôle communication.</li>
+                <li>Organisé et participé à des événements associatifs.</li>
+                <li>Géré et coordonné des projets.</li>
+            </ul>
+            <p>Ce travail m'a permis de développer des compétences telles que la communication, la gestion du temps et le sens des responsabilités.</p>
+            <p><strong>CLIQUEZ ICI POUR VOIR MON <a href="LEP_TORCH_Amine.pdf" target="_blank">LEP</a></strong></p>
+            <p><strong>CLIQUEZ ICI POUR VOIR LE RESULTAT ! <a href="videos_montage_lep.zip" target="_blank">VIDÉOS</a></strong></p>
+        </div>
+    </section>
+
+    <section id="objectives">
+        <div class="container">
+            <h2><img src="objectif.png" alt="Logo objectif" style="width: 70px; height: 70px; vertical-align: middle; margin-right: 5px;">Objectifs</h2>
+            <h3>COURT TERME</h3>
+            <ul>
+                <li>Obtenir un stage ou une alternance dans une entreprise spécialisée en cybersécurité.</li>
+                <li>Renforcer mes compétences en programmation sécurisée et audit de sécurité.</li>
+                <li>Participer à des projets concrets pour appliquer mes connaissances théoriques.</li>
+                <li>Obtenir des certifications techniques reconnues (ex. : Cisco CCNA, CompTIA Security+).</li>
+            </ul>
+            <h3>LONG TERME</h3>
+            <ul>
+                <li>Devenir un expert en cybersécurité et contribuer à la protection des infrastructures critiques.</li>
+                <li>Intégrer une équipe de recherche et développement en sécurité informatique.</li>
+                <li>Fonder ou diriger une entreprise spécialisée en cybersécurité.</li>
+                <li>Encadrer et former de futurs professionnels de la cybersécurité.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2><img src="mail.gif" alt="Logo mail" style="width: 70px; height: 70px; vertical-align: middle; margin-right: 5px;">Me contacter</h2>
+            <form action="https://formspree.io/f/xqaagbrr" method="POST">
+                <label for="name">Nom :</label>
+                <input type="text" id="name" name="name" required>
+                <label for="email">Email :</label>
+                <input type="email" id="email" name="email" required>
+                <label for="message">Message :</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+                <button type="submit">Envoyer</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>Portfolio de TORCH Amine - +33 6 75 12 05 16 - Tous droits réservés © 2025</p>
+        <p>Suivez-moi sur <a href="http://www.linkedin.com/in/amine-torch-at" target="_blank"><img src="linkedin.png" alt="Logo Linkedin" style="width: 20px; height: 20px; vertical-align: middle; margin-right: 5px;">LinkedIn</a> | <a href="https://github.com/amine91z" target="_blank"><img src="github.gif" alt="Logo Github" style="width: 20px; height: 20px; vertical-align: middle; margin-right: 5px;">GitHub</a> | <a href="https://www.instagram.com/amineeee.13z/profilecard/?igsh=MTgxajQ5cXY4NTR6Mw==" target="_blank"><img src="insta.png" alt="Logo Instagram" style="width: 20px; height: 20px; vertical-align: middle; margin-right: 5px;">Instagram</a></p>
+    </footer>
+</body>
+</html>
